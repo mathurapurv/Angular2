@@ -1,0 +1,78 @@
+
+<html ng-app="editEvents">
+
+
+<head>
+<title>New Event Details</title>
+
+<script src="lib/jquery.min.js"></script>
+<script src="lib/underscore-1.4.4.min.js"></script>
+<script src="lib/bootstrap.min.js"></script>
+<script src="lib/angular/angular.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers/EditEventController.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/app.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
+
+
+</head>
+<body>
+
+<div class="container">
+<div ng-controller="EditEventController">
+
+<h1>New Event</h1>
+<br/>
+
+<form name="newEventForm">
+	<fieldset>
+	  <label for="eventName">Event Name</label>
+	  <input type="text" placeholder="Event name ....." id="eventName" ng-model="event.eventName" required>
+	  	  <label for="eventDate">Event Date</label>
+	  	  
+	  <input type="text" placeholder="Event Date ....." id="eventDate" ng-model="event.eventDate" required ng-pattern="/\d\d/\d\d/\d\d\d\d/">
+	  	  <label for="eventTime">Event Time</label>
+	  	  
+	  <input type="text" placeholder="Event Time ....." id="eventTime" ng-model="event.eventTime">
+	  	  <label for="eventLocation">Event Location</label>
+	  	  
+	  <input type="text" placeholder="Event Location ....." id="eventLocation" ng-model="event.eventLocation">
+	  <br/>
+	  <input type="text" placeholder="Event City ....." id="eventCity" ng-model="event.eventCity">
+	  <input type="text" placeholder="Event Province ....." id="eventProvince" ng-model="event.eventProvince">
+	  
+	  <br/>
+	  <button type="submit" class="btn btn-primary" ng-click="saveEvent(event , newEventForm)" ng-disabled="newEventForm.$invalid">Save</button>
+	  <button type="button" class="btn btn-primary" ng-click="cancelEdit()">Cancel</button>
+	  
+	  
+	  
+	  
+	  
+	
+	</fieldset>
+
+
+</form>
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+</body>
+</html>

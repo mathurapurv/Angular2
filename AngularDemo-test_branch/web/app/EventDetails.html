@@ -1,0 +1,108 @@
+
+<html ng-app="eventsApp">
+
+
+<head>
+<title>Event Details</title>
+
+<script src="lib/jquery.min.js"></script>
+<script src="lib/underscore-1.4.4.min.js"></script>
+<script src="lib/bootstrap.min.js"></script>
+<script src="lib/angular/angular.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers/EventController.js"></script>
+<script src="js/new-services/EventData.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/app.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
+
+
+</head>
+<body>
+
+
+
+<div class="container">
+
+<div ng-controller="EventController">
+
+  <img ng-src="{{event.imageUrl}}"  />
+
+	<table>
+		<tr> <td> Name : {{event.name}} </td>  </tr>
+		<tr><td>  Date : {{event.date}}  </td></tr>
+		<tr><td>  time :{{event.time}}  </td></tr>
+		<tr><td>   Address :{{event.location.address}}  </td></tr>
+		<tr><td>  City : {{event.location.city}} </td> </tr>
+		<tr><td>  State : {{event.location.state}} </td> </tr>		
+	</table>
+	
+	
+
+	
+	
+	
+<h3> Sessions </h3>
+    <ul class="thumbnails">
+      <li ng-repeat="session in event.sessions">
+       <div class="row session">
+          <div class="span0 well votingWidget">
+          <div class="votingButton" ng-click="upVoteSession(session)">
+           <i class="icon-chevron-up icon-white"></i>
+          </div>
+          <div class="badge badge-inverse">
+            <div>{{session.upVoteCount}}</div>
+          </div>
+          <div class="votingButton" ng-click="downVoteSession(session)">
+           <i class="icon-chevron-down icon-white"></i>
+          </div>
+         </div>
+            <div class="well span9">
+               <h4 class="well-title">{{session.name}}</h4>
+               <h6 style="margin-top:-10px;">{{session.creatorName  | uppercase}}</h6>
+               <span>Duration : {{session.duration}}</span><br/>
+               <span>level :  {{session.level}} </span>
+               <p> {{session.abstract}}</p>
+            </div>
+          </div>
+      </li>
+    </ul>
+	<div>
+	<table style="border: 2px outset grey" cellspacing="1">
+		<tr> 
+		      <td> Name</td>    <td>field </td>   <td> level</td>   <td> experience</td>  
+     	</tr>		
+		<tr ng-repeat="presenter in event.presenters"> 
+		      <td> {{presenter.Name}} </td>    <td>{{presenter.field}} </td>   <td> {{presenter.level}} </td>   <td> {{presenter.experience}} </td>   
+		</tr>
+	</table>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+</div>
+
+<br/><br/><br/><br/>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+</body>
+</html>
