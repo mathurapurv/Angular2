@@ -6,13 +6,11 @@ eventsApp.factory('profilePicBuilder' , function($http, $log){
 			return 'img/'+picName+'.png';
 		},
 		
-		fetchUserInfo : function(successcb){
-			alert('chk1');
-			$http({method : 'GET' , url : 'data/user-info'}).
+		fetchUserInfo : function(userName , successcb){
+			$http({method : 'GET' , url : 'http://localhost:8080/TestGrails/test/obtainUserInfo?userName='+userName}).
 			  success( function(data, status, headers, config){
-				  alert('success');
-				  $log.info(data)
-				  successcb(data)
+				  alert('data'+data);
+				  successcb(data);
 			  }).
 			    error( function(data, status, headers, config){
 			    	alert('error');

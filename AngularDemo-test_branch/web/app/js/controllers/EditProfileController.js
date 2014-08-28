@@ -4,10 +4,13 @@ eventsApp.controller('EditProfileController', function EditProfileController($sc
 	
 	/* fill up method  */
 	
-	profilePicBuilder.fetchUserInfo(function(data){
-		
-		
-	})
+
+	
+	$scope.changeUserName = function(){
+		profilePicBuilder.fetchUserInfo($scope.user.userName , function(data){
+			$scope.user=data;
+		});
+	};
 	
 	
 	
