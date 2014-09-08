@@ -7,7 +7,6 @@ eventsApp.factory('profilePicBuilder' , function($http, $log){
 		},
 		
 		fetchUserInfo : function(successcb){
-			alert('chk1');
 			$http({method : 'GET' , url : 'data/user-info'}).
 			  success( function(data, status, headers, config){
 				  alert('success');

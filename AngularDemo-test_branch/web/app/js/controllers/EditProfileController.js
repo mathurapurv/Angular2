@@ -7,11 +7,7 @@ eventsApp.controller('EditProfileController', function EditProfileController($sc
 	profilePicBuilder.fetchUserInfo(function(data){
 		
 		
-	})
-	
-	
-	
-	
+	});
 	
 	$scope.getImageURL = function(picName){
 		return profilePicBuilder.buildProfilePicUrl(picName);
