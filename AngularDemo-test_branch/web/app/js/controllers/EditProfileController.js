@@ -1,6 +1,7 @@
 'use strict';
-eventsApp.controller('EditProfileController', function EditProfileController($scope,profilePicBuilder) {
+eventsApp.controller('EditProfileController', function EditProfileController($scope,profilePicBuilder , answerPrayer) {
 	$scope.user = {};
+	$scope.prayer = {};
 	
 	/* fill up method  */
 	
@@ -12,12 +13,16 @@ eventsApp.controller('EditProfileController', function EditProfileController($sc
 		});
 	};
 	
-	
-	
-	
-	
 	$scope.getImageURL = function(picName){
 		return profilePicBuilder.buildProfilePicUrl(picName);
+	};
+	
+	$scope.sendPrayer = function(){
+		answerPrayer.answerPrayerFromJesus($scope.prayer.question).then(
+						function(data){$scope.prayer.reply = data;} , 
+						function(statusCode){console.log(statusCode)}
+						
+		);
 	};
 	
 	
