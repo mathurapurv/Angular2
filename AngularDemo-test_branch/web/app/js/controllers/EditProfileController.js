@@ -4,7 +4,7 @@ eventsApp.controller('EditProfileController', function EditProfileController($sc
 	$scope.prayer = {};
 	
 	/* fill up method  */
-	
+
 
 	
 	$scope.changeUserName = function(){
@@ -12,6 +12,12 @@ eventsApp.controller('EditProfileController', function EditProfileController($sc
 			$scope.user=data;
 		});
 	};
+	
+	
+	profilePicBuilder.fetchUserInfo(function(data){
+		
+		
+	});
 	
 	$scope.getImageURL = function(picName){
 		return profilePicBuilder.buildProfilePicUrl(picName);
